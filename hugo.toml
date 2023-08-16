@@ -1,7 +1,7 @@
 baseURL = "https://navant.github.io/"
 title = "Arivminds"
 paginate = 5
-theme = "PaperMod"
+theme = "hugo-PaperMod"
 enableInlineShortcodes = true
 enableRobotsTXT = true
 buildDrafts = false
