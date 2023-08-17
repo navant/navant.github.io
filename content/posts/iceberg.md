@@ -11,7 +11,7 @@ showToc: true
 TocOpen: false
 hidemeta: false
 comments: false
-description: "Discuss about apache iceberg"
+description: "Apache Iceberg is been buzzing for a while this post is to deep dive on what that means and its solution considerations"
 canonicalURL: "https://canonical.url/to/page"
 disableHLJS: true # to disable highlightjs
 disableShare: false
@@ -35,9 +35,7 @@ editPost:
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 ---
-# Apache Iceberg — Solution Considerations
 
-Apache Iceberg is been buzzing for a while this post is to deep dive on what that means and its solution considerations
 
 ### **What is it?**
 
