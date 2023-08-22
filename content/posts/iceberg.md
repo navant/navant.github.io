@@ -35,7 +35,9 @@ editPost:
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 ---
+# Apache Iceberg — Solution Considerations
 
+Apache Iceberg is been buzzing for a while this post is to deep dive on what that means and its solution considerations
 
 ### **What is it?**
 
@@ -47,23 +49,42 @@ editPost:
 
 Multiple users and tools can read, write or interact with the table at same time. All the corresponding data is written as table. You can modify the underlying schema on existing file without other rows and columns are impacted
 
+![Example image](/iceberg.png)
 ### Solution Considerations:
 
-- Are you going to load and store all your data into a data warehouse?(Pure Data warehouse) such as AWS Redshift, Snowflake, Big Query, Synapse Analytics
 - Are you going to load and store all data in a data lake and access? (Data Lake)
+    - Ideal usecase  , esp If you want to store and query directly from data lake or adopting a lakehouse architecture
+
+- Are you going to load and store all your data into a data warehouse?(Pure Data warehouse) such as AWS Redshift, Snowflake, Big Query, Synapse Analytics
+    - Not Applicable  , you don't need this as cloud warehouse take care of this for you
 - Are you going to load and maintain some data in data lake and some data in warehouse? (Delta Lake scenario)
+    - **Partial**
+        - **AWS** : Apache Iceberg supports popular data processing frameworks such as Apache Spark, Apache Flink, Apache Hive and Presto. AWS services such as [Amazon Athena](https://aws.amazon.com/athena/), [Amazon EMR](https://aws.amazon.com/pm/emr/), and [AWS Glue](https://aws.amazon.com/glue/), include native support Apache Iceberg for transactional data lake, often based on storage in [S3](https://aws.amazon.com/s3/).
+        - 
+        - **Snowflake** - can query the data directly in Iceberg and treat as external table
+        - Google Big Query - Can support load and query from  iceberg table. [https://cloud.google.com/bigquery/docs/query-iceberg-data](https://cloud.google.com/bigquery/docs/query-iceberg-data)
+        
+        <aside>
+        💡 **Gotcha:**
+        
+        - AWS Redshift still dont support reading Iceberg format (atleast in Aug 2023, strongly awaited feature in the roadmap)
+        - Azure also cannot support read and write in Iceberg format natively (atleast in aug 2023) so need work around
+        </aside>
+        
 - Do you want to maintain data in Open Table format
-- What other considerations:
-- Who Supports it:
-    
-    Cost
-    
-    Performance
-    
-    Scalability
-    
-    Flexibility
-    
+    - **yes , but even parquet can also support this**
+
+<aside>
+💡 **Final call outs:**
+
+- Not easy or seamless yet but way to go in the future
+- Do you deal with high volume of data and manage the data (query, compute) from data lake directly - Iceberg format is way to go
+- Do you willing to migrate from delta tables or cloud native format to iceberg - yes
+- If you are using AWS Redshift or Azure - its not yet seamless to interact with iceberg
+- If you are storing data directly in AWS Redshift or Big Query or Azure, then you dont need to consider.
+- How ever if you how ever if you are exporting data  then store data in iceberg in external table is good option
+
+</aside>
 
 If you want to deep dive more , here are some additional information
 
@@ -158,5 +179,20 @@ How it will actually look like
 ![https://cdn-images-1.medium.com/max/800/1*2F2fBJVIu2pHWn2dxHtaMw.png](https://cdn-images-1.medium.com/max/800/1*2F2fBJVIu2pHWn2dxHtaMw.png)
 
 You need a catalogue and query engine to connect to navigate the data. In this case its AWS Glue and AWS Athena
+
+Additional Cost consideration:
+
+1. **Storage Efficiency**: Iceberg has certain optimizations, like column pruning and partition pruning, that can reduce the amount of data read, potentially saving costs on storage. However, schema evolution might lead to duplicate data in the short term until older versions of data are garbage collected.
+2. **Compute Costs**: Efficient data retrieval can save on compute costs, as tasks complete faster. This means less CPU and memory usage in cloud environments or distributed systems.
+3. **Integration Costs**: While Iceberg integrates with popular computation frameworks like Spark, Flink, and Presto, there might be initial costs related to setting it up, especially if migrating from another table format or storage solution.
+4. **Migration Costs**: If you're transitioning from another storage layer to Iceberg, there might be costs associated with the migration process, which includes time, resources, and potential cloud or infrastructure charges.
+5. **Maintenance Costs**: Like any technology, there are costs associated with maintaining and managing the infrastructure. This includes managing snapshots, performing garbage collection, and ensuring schema compatibility. There may also be costs related to training your team on the new system.
+6. **Versioning Costs**: One of Iceberg's features is its ability to handle versioning and snapshots. While this is a beneficial feature, maintaining multiple versions of data can increase storage costs until older snapshots are deleted.
+7. **Performance Tuning**: Optimizing Iceberg for your specific workload can involve time and expertise, leading to associated costs. For instance, choosing the right partitioning strategy is essential for performance but might require experimentation.
+8. **Vendor Lock-in**: If you're using a particular cloud provider's storage solution and are considering moving to a more open format like Iceberg to avoid vendor lock-in, consider potential costs of transferring data out of your current cloud storage, as well as potential benefits in flexibility and potential cost savings in the future.
+9. **Backup and Disaster Recovery**: Backup strategies might differ with Iceberg, potentially affecting costs, depending on your chosen storage backend and associated charges for data retrieval or redundancy.
+10. **Open Source**: While Apache Iceberg is open source and free to use, implementing, customizing, and maintaining the software might require expertise. This could involve hiring or training staff familiar with the system.
+
+In summary, while Apache Iceberg offers many benefits in terms of performance, flexibility, and scalability, there are costs to consider when implementing and maintaining it. It's essential to weigh these costs against the potential benefits for your specific use case and infrastructure.
 
 ###
