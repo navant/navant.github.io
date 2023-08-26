@@ -31,7 +31,7 @@ cover:
     relative: false # when using page bundles set this to true
     hidden: true # only hide on current single page/
 editPost:
-    URL: "https://github.com/navant/navant.github.io/tree/main/content/posts"
+    URL: "https://github.com/navant/navant.github.io/tree/main/content/"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 ---
@@ -96,7 +96,7 @@ Some history: True heavy weight in the big data arena was Apache Parquet , whic
 
 Apache Iceberg has been designed to address some of the issues that is faced with Parquet file format.
 
-### Dif0ferent characteristics
+### Different characteristics
 
 Below provides a high level comparison with Apache Parquet
 
