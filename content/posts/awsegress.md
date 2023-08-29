@@ -1,6 +1,6 @@
 ---
 title: "AWS Egress cost"
-date: 2023-08-29T11:30:03+00:00
+date: 2023-08-28T11:30:03+00:00
 draft: false
 # weight: 1
 # aliases: ["/first"]
