@@ -1,7 +1,7 @@
 ---
 title: "AWS Egress cost"
 date: 2023-08-29T11:30:03+00:00
-draft: true
+draft: false
 # weight: 1
 # aliases: ["/first"]
 tags: ["cloud-cost","aws"]
