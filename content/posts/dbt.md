@@ -71,4 +71,4 @@ Before diving into DBT Cloud, here are some pivotal aspects you need to mull ove
 
 ## Final Thoughts
 
- the choice between DBT Core and Cloud largely circulate on an enterprise's data retention policies, security prerequisites, and the organization's readiness to adopt new tools. In some cases, stringent security protocols might make the adoption of DBT Cloud challenging. Starting with DBT Core can provide a swift entry point, and as the organization evolves, transitioning to DBT Cloud might become a logical next step — provided it still offers a distinct advantage.
+ the choice between DBT Core and Cloud largely circulate on an enterprise's data retention policies, security prerequisites, and the organization's readiness to adopt new tools. In some cases, stringent security protocols might make the adoption of DBT Cloud challenging. Starting with DBT Core can provide a good starting point and as the organization evolves, transitioning to DBT Cloud might become a logical next step — provided it still offers a distinct advantage.
