@@ -35,7 +35,7 @@ editPost:
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 ---
-[dbt](https://www.getdbt.com/) (Data Build Tool) is fast gaining traction in the realm of contemporary data platform architecture. Its primary function? To enable analysts and engineers to more efficiently transform data within their data warehouse.
+[dbt](https://www.getdbt.com/) (Data Build Tool) is fast gaining traction in the modern data platform architecture. Its primary function? To enable analysts and engineers to more efficiently transform data within their data warehouse.
 
 The DBT universe comprises two main variants:
 
