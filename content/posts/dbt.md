@@ -1,5 +1,5 @@
 ---
-title: "# dbt: A Deep Dive into dbt-Core vs dbt-Cloud"
+title: "dbt: A Deep Dive into dbt-Core vs dbt-Cloud"
 date: 2023-09-12T11:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
@@ -11,7 +11,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "dbt Core & dbt Cloud: Differences and Considerations"
+description: "Differences and Considerations"
 canonicalURL: "https://canonical.url/to/page"
 disableHLJS: true # to disable highlightjs
 disableShare: false
