@@ -46,7 +46,7 @@ A pressing question for many is, "Which one should I use?" Many discussions are 
 
 ## DBT Core vs. DBT Cloud: Feature Breakdown
 
-| Feature                                  | DBT Core | DBT Cloud | When to Choose DBT Cloud  | What to Do with DBT Core |
+| Feature                                  | DBT Core | DBT Cloud | When to Choose DBT Cloud  | How you will use with dbt Core |
 |------------------------------------------|----------|-----------|---------------------------|--------------------------|
 | **Local Development & IDE**              | Install VSCode or Pycharm on your desktop | Cloud-based IDE | When setting up an IDE on your workstation feels burdensome | 1. Use VSCode, Pycharm, or other IDEs. 2. Install Python and its dependencies. 3. Set up the DBT project. 4. Develop & run the project. |
 | **CI/CD**                                | Requires integration with GitHub/GitLab, a Docker/server, and connectivity for deployment | Seamless integration with GitHub/GitLab and execution via DBT Cloud. Connectivity still essential for deployment | If establishing a CI/CD pipeline feels daunting | Use a Docker preloaded with DBT packages, fetch the latest DBT project during CI/CD runs, and execute. |
@@ -59,7 +59,7 @@ From the table, it's evident that while many tasks can be accomplished using DBT
 
 ## DBT Cloud: Key Considerations
 
-Before diving into DBT Cloud, here are some pivotal aspects you need to mull over:
+Before diving into DBT Cloud, here are some key aspects you need to consider:
 
 - **Database Connectivity:** Ensure DBT Cloud can interface with your data platform. For platforms like AWS Redshift or S3, the connection might necessitate a bastion host. [Learn more](https://docs.getdbt.com/docs/cloud/connect-data-platform/connect-redshift-postgresql-alloydb).
 - **Production Deployment:** DBT Cloud requires your data warehouse's production deployment credentials for a seamless transition to production.
