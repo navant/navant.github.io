@@ -37,7 +37,7 @@ editPost:
 ---
 # dbt vs dbt core
 
-dbt(a.k.a data build tool ) is the tool you common use for transforming your data in the modern data platform architecture. It that analysts and engineers transform data in their warehouse more effectively
+dbt([a.k.a data build tool](https://www.getdbt.com/) ) is the tool you common use for transforming your data in the modern data platform architecture. It that analysts and engineers transform data in their warehouse more effectively
 
 their are two variants
 
