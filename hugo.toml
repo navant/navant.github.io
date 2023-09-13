@@ -1,5 +1,5 @@
 baseURL = "https://navant.github.io/"
-title = "arivminds"
+title = "Blog"
 paginate = 5
 theme = "hugo-PaperMod"
 enableInlineShortcodes = true
@@ -65,7 +65,7 @@ images = [ "papermod-cover.png" ]
 
   [params.profileMode]
   enabled = false
-  title = "Arivminds"
+  title = "arivminds"
   imageUrl = "#"
   imageTitle = "my image"
 
