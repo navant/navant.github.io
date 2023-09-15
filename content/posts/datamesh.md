@@ -35,67 +35,62 @@ editPost:
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 ---
-[Data Mesh -](https://martinfowler.com/articles/data-mesh-principles.html) When you plan to modernise your data landscape, you would have heard about this term many times . Their are plethora of articles , books, references  and community around this. Here i am going to write my takeways in this ,what is really hard or complex and is it right architecture for you
+In the journey to modernize your data landscape, you've likely come across the term "[Data Mesh -](https://martinfowler.com/articles/data-mesh-principles.html)" numerous times. There's a wealth of articles, books, references, and a thriving community dedicated to this topic. In this blog post, we'll delve into what Data Mesh really entails, explore its complexities, and determine if it's the right architectural approach for your organization.
 
- If you like more comprehensive reading of the concept, you can skip and access [https://www.datamesh-architecture.com/](https://www.datamesh-architecture.com/) directly which is far more detailed. 
+If you prefer a more comprehensive resource on the concept, you can skip ahead and access [DataMesh-Architecture](https://www.datamesh-architecture.com/), which provides in-depth information.
 
-### What is Data mesh -
+## What is Data Mesh?
 
-The term *data mesh* was coined by [Zhamak Dehghani](https://martinfowler.com/articles/data-mesh-principles.html)  in 2019 and is based on four fundamental principles that bundle well-known concepts.
+The term *Data Mesh* was coined by [Zhamak Dehghani](https://martinfowler.com/articles/data-mesh-principles.html) in 2019, building upon four fundamental principles that consolidate well-established concepts:
 
-They are
+- **Domain Ownership:** This principle advocates that domain teams take ownership of their data.
+- **Data as a Product:** It promotes a product-centric philosophy applied to analytical data.
+- **Self-Serve Data Infrastructure Platform:** Embracing platform thinking when it comes to data infrastructure.
+- **Federated Governance:** Encouraging interoperability among all data products through standardization, facilitated by a central governance group.
 
-- **domain ownership** - principle: domain teams to take responsibility for their data
-- **data as a product -**principle: a product thinking philosophy onto analytical data.
-- **self-serve data infrastructure platform** -principle: adopt platform thinking to data infrastructure
-- **federated governance-**principle: interoperability of all data products through standardization, which is promoted  by the central governance group
-- **Any Other?**
+*(Are there any other principles you should consider?)*
 
-![Untitled](/datamesh1.png)
+![Data Mesh](/datamesh1.png)
 
-<aside>
-💡 First take away - Dont take this directly, these are key principles and your landscape may be different, so find out whats best for you. but before you reinvent a new principle , understand whether above  already address your problem or applicable for you
+> 💡 **First Takeaway:** It's important to note that these principles are not one-size-fits-all. Your specific landscape may require adjustments, so before crafting new principles, assess whether the existing ones can address your challenges and align with your needs.
 
-</aside>
+Now, let's dive into the problems Data Mesh aims to solve:
 
-So what problem it try to answer
+- **The Central Data Team Bottleneck:** Often, the central data team becomes a bottleneck in data management.
+- **Discovering and Understanding Domain Data:** Teams must discover and comprehend the data relevant to their domains.
+- **Domain Teams Ownership and Knowledge:** Different organizations define domains differently. Is your IT team separated into domains like CRM, billing, order management, finance, etc., or is there a unified IT or BI team managing all data? Assess how Data Mesh aligns with your unique situation; there's no one-size-fits-all answer.
 
-- **the central data team often becomes a bottleneck**.
-- **the  team has to discover and understand the necessary domain data**
-- **domain teams own and know their domain**
+To truly grasp Data Mesh's implications, it's crucial to understand the characteristics of domain teams:
 
-Here the concept of domain is different among different organisations, is IT team federated along with business into seperate domain like crm, billing, order mgmt, finance etc. or its one IT and/or one BI team who maintain all the data?  . How you tailor the data mesh or this is not applicable for you?
+![Data Domains-Mesh Characteristics](/datamesh2.png)
 
-their is no straight answer to this. So understand completely before you get into conclusions.
+If everything seems logical so far, you might wonder about the engineering implementation. Fortunately, you don't have to reinvent the wheel. [This site](https://www.datamesh-architecture.com/#tech-stacks) explains in detail how to implement Data Mesh from an engineering perspective.
 
-What are chracteristics of domain team? 
+Now, let's delve into the heart of the matter—what makes Data Mesh implementation challenging:
 
-![Data Domains-Mesh characteristics.png](/datamesh2.png)
+> Please note that these complexities are based on my personal experience and may not apply universally.
 
-Is everything too logical , then how you implement this in engineering way below site explains in detail [https://www.datamesh-architecture.com/#tech-stacks](https://www.datamesh-architecture.com/#tech-stacks) . I dont want to reinvent the wheel
+### Complexities in Data Mesh Implementation
 
-So lets get into whats harder, which is main aspect i want to cover .
+1. **Cultural and Organizational Design:** Data Mesh is more about cultural and organizational design than just technical changes, similar to a true Agile project lifecycle.
 
-> this is purely based on my experience , so this may be not a problem for you
-> 
+2. **Limited Data Engineering Resources:** Finding sufficient data engineers with the required skill set within the organization can be a challenge.
 
-### **Complexities in Data Mesh implementation**
+3. **Mix of Old and New Stacks:** Most implementations involve a mix of legacy and modern technology stacks, often with central and independent teams, making it far from a greenfield project.
 
-- Data mesh is cultural and organisation design than technical (like true agile project life cycle)
-- You dont get too many data engineers nor the skill set in the organisation to do pure domain model or with many federated domain teams.
-- Most of the implementations are mix of old and new stacks and with central team and some team wants to run independently on their own, so no green field
-- Teams often dont give much importance to data catalog or metadata management,  some times you dont a proper data catalog, even if you have catalog , it is often not inline with actual data , Which data is relevant is most of times with SMEs. SMEs dont want to spend effort in keeping up Data Catalog upto date.
-- When ever technical implementation of data mesh , you immediately create a producer , consumer and a governance node and try to manage the sharing policies via governance node. but practically this drift apart  because producer enable other access points to consumer than published means or consumer duplicate the data and do on own with little visibility
-- Applying policies in automated way is hard.  Their is lot of techincal challenges in fully adopting central policy definition to federated policy enforcement.
+4. **Data Catalog and Metadata Challenges:** Teams sometimes overlook the importance of data catalog or metadata management. Even if a catalog exists, it may not align with actual data, as data relevance is often known by Subject Matter Experts (SMEs) who may not prioritize catalog upkeep.
 
-### What i can adopt
+5. **Challenges in Governance:** While technical implementations typically involve creating producer, consumer, and governance nodes to manage data sharing policies, these can diverge from the intended design. Producers may enable unintended access points, and consumers might duplicate data with limited visibility.
 
-It depends. you can pick whats best works for you., implement like ***Data Mesh Lite** if full data mesh is too much for you*
+6. **Automated Policy Application:** Applying policies in an automated way can be challenging, and there are numerous technical hurdles in fully adopting central policy definitions for federated policy enforcement.
 
-The concept of data product, data contracts and self-serve infrastructure,  all are vauable that can be accomodated even in central teams setup .
+### What Can You Adopt?
 
-if you cant adopt true domain model. it is fine if single team can be owner of multiple domains or multiple data products as long as the principles of domain ownership and data product are propertly applied.
+The path you choose depends on your organization's unique circumstances. You can adopt what works best for you, even if a full Data Mesh implementation seems overwhelming. Consider a "Data Mesh Lite" approach, where you selectively implement elements like data products, data contracts, and self-serve infrastructure, even within a central team setup.
 
-Reference:
+If a true domain model isn't feasible, it's acceptable for a single team to own multiple domains or data products, as long as the principles of domain ownership and data product management are correctly applied.
 
-[https://www.datamesh-architecture.com/](https://www.datamesh-architecture.com/)
+
+In conclusion, Data Mesh is a powerful concept, but its successful implementation requires a deep understanding of your organization's unique needs and challenges. By carefully considering its principles and adapting them to your context, you can leverage Data Mesh to transform your data landscape.
+
+**Reference:** [DataMesh-Architecture](https://www.datamesh-architecture.com/)
