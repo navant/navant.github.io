@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Blog</title>
+    <link>https://navant.github.io/</link>
+    <description>Recent content on Blog</description>
+    <image>
+      <title>Blog</title>
+      <url>https://navant.github.io/papermod-cover.png</url>
+      <link>https://navant.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 06 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://navant.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Book :The Diary of a CEO</title>
+      <link>https://navant.github.io/books/</link>
+      <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://navant.github.io/books/</guid>
+      <description>Intersting takeaways This book covers..
+Here are my interesting bits from this book
+Pillar 4 - The Team Leverage the Power of Progress , Superpower of small wins How to create prospective progress in teams - steps
+Creating meaning
+Setting Clear anf Actionable Goals
+Providing Autonomy
+Removing Friction
+Broadcasting Progress (Celebrate)
+“The most professionally rewarding feeling inn the world is sense of Forward motion”
+Ask Who NOT How - Delegate</description>
+    </item>
+    
+    <item>
+      <title>How to use</title>
+      <link>https://navant.github.io/usage/</link>
+      <pubDate>Sat, 04 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://navant.github.io/usage/</guid>
+      <description>Step-by-step guide to make your own blog with Notion and Hugo, hosted on GitHub Pages</description>
+    </item>
+    
+    <item>
+      <title>Template for Blog</title>
+      <link>https://navant.github.io/template/</link>
+      <pubDate>Fri, 03 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://navant.github.io/template/</guid>
+      <description>Example of post written with Notion</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://navant.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://navant.github.io/about/</guid>
+      <description></description>
+    </item>
+    
+    
+  </channel>
+</rss>
