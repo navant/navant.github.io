@@ -1,5 +1,5 @@
 baseURL = "https://navant.github.io/"
-title = "Blog"
+title = "techaways"
 paginate = 5
 theme = "hugo-PaperMod"
 enableInlineShortcodes = true
