@@ -37,231 +37,186 @@ editPost:
 ---
 ![Diary of CEO](/diaryofceo.jpeg)
 
-This book from Steven Bartlet is one of excellent reads that covers important tips to Self and Professional life. I came across this very recently(its late than never)  on Audio Book, quite astonished by the content i also got the physical copy as reference for my ‘Hall of Fame’
+This book by Steven Bartlett is an excellent read that covers essential tips for both personal and professional life. I recently came across it as an audiobook (better late than never) and was so impressed by the content that I also purchased a physical copy to add to my ‘Hall of Fame.’
 
-This Book has been writtern in 4 Pillars - Self, Story,Philosphy and Team
+The book is structured around four pillars: Self, Story, Philosophy, and Team.
 
-Here are my interesting bits from this book
+Here are my favorite takeaways from the book:
 
-## Pillar 1 Self
+## Pillar 1: Self
 
-### Fill your Buckets in the right order
+### Fill Your Buckets in the Right Order
 
-- What you know(Knowledge)
-- What you can do(your skills)
-- Who you know(your network)
-- What you have(your resources)
-- Whatthe world thinks of you(your reputation)
+- What you know (Knowledge)
+- What you can do (Skills)
+- Who you know (Network)
+- What you have (Resources)
+- What the world thinks of you (Reputation)
 
-### You should Teach it to master it
+### Teach It to Master It
 
-- If you want to maste rit, do it publically and do it consistently
-- Being able to simplify an idea and successfully sharing to others is path to understanding it and proof you can do. One ways we mask our lack of understanding of any idea is by using more, bigger words
+- If you want to master something, do it publicly and consistently.
+- Simplifying an idea and successfully sharing it with others is key to understanding it. One way we mask our lack of understanding is by using more complex words.
 
 ### Never Disagree
 
-- if you want to keep someone’s brain lit up and receptive to your point of you is you must not start with your response with statement of disagreement
-- ‘
-- find some thing common in agreement and then share your view or your rebuttal
+- If you want to keep someone’s mind open and receptive to your point of view, avoid starting your response with a statement of disagreement.
+- Find common ground first, then share your view or rebuttal.
 
-### You do not choose what you believe
+### You Do Not Choose What You Believe
 
-→ Our beliefs are not constant and it will change
+- Our beliefs are not constant; they change over time.
+- Many of our most important beliefs lack evidence, except that trusted people hold these beliefs.
+- To change someone’s belief, simply telling them they’re wrong won’t work. They need firsthand experiences from their senses (hence, “seeing is believing”).
+- To change others’ beliefs, inspire new ones by highlighting the positive impact of new evidence without directly contradicting their existing beliefs.
+- A detailed self-review can weaken any belief.
+  - **Example:** A study asked graduates to rate their understanding of their toilet at home. After attempting to explain its workings, their confidence dropped significantly.
+- Growth happens when you start doing things you aren’t yet qualified to do.
 
-For some of our most important beliefs we have no evidence at all, except that people we love or we trust hold these beliefs’
+### Cognitive Dissonance Is Not Arrogance—Lean Into Your Bizarre Behavior
 
-→ To Change the belief of others, simply telling they are wrong wont work either. They need to experience first party experience from their senses(thats why seeing is  believing )
+- Cognitive dissonance is the tension you experience when your thoughts conflict with your behavior.
+- When you don’t understand something, lean in more. When it challenges your intelligence, lean in more. When it makes you feel stupid, lean in more. Don’t block people you disagree with; don’t run from ideas that make you uncomfortable.
 
-→ How to you change other beliefs
+### Ask, Don’t Tell—The Question/Behavior Effect
 
-Our brain considers new evidfence alongside the current evidence it has stored, if it agrees it takes, if it rebutes then it ignores
+- Questions, unlike statements, elicit an active response—they make people think.
+  - **Example:** “Will you recycle?” vs. “Please recycle.”
+- Use cognitive dissonance to your advantage. Once someone says “yes,” it’s more likely they’ll follow through.
 
-So instead of Attacking old beliefs inspire new ones and highlight the incredible positive impact of this new evidence without disagree with their existing beliefs
+### Never Fight a Bad Habit
 
-- Detail Self-Review can reduce any belief
-    
-    e.g: 
-    
-    study conducted where graduates were asked rate their understanding of their toilet at home and once they rated they were asked for step by step explantion of how it works once they attempted to explain its internal workings they were asked to rate again. their belief in their understanding dropped significantly
-    
-- Growth happens when you start doing things you are not qualified to do
+- Understand the pattern: Trigger → Routine → Reward.
+  - Identify what triggers the action that creates a habit. Then, replace the resource (e.g., switch from a cigarette to chocolate) when the routine is triggered, so your pattern remains.
+- Focusing too much on stopping something often leads to doing it more.
+- When creating a new habit, take care of yourself and get plenty of sleep.
 
-### **Cognitive dissonance is not arrogance- Lean into your bizzare behavior**
+> “Sleep, lift, move, smile, laugh, listen, read, save, hydrate, fast, build, create—your habits are your future.”
 
-- Cognitive dissonance is tension you experience when your thoughts conflict with your behavior
-- When you dont understand lean in more, when it challenges your intelligence lean in more, when it makes you feel stupid lean in more, Dont block people that you dont agree with, Dont run from ideas that makes you unconfortable.
+### Always Prioritize Your Foundation
 
-### Ask, Dont tell -Question /Behavior Effect
+You have one body—take care of your health. There is no greater form of gratitude than taking care of yourself.
 
-- Question, unlike statements , elicit an active response, - they make people think
-    
-    e.g: Will you recycle? vs please recycle
-    
-- Use coginitive dissonance in your favour , once some one answer yes then its more likely to come true as behavior
+## Pillar 2: Story
 
-### Never fight a bad habit
+### Useful Absurdity Will Define You More
 
-- Trigger → Routine → Reward  (understand this pattern)
-    - What triggers the action ,that creates positive or negative habit because it has become a routine and then you get reward of that action.
-    - Now for bad habit replace the resource(e.g: cigerrate to a choclate) when that routine is triggered which is less harm . your pattern maintains
-- When you focus too much on stopping something,you rebound and do it more
-- When you create a new habit, take care of yourself and get as much sleep as you can
+- A brand’s publicity is often defined more by its useless absurdity than its useful practicalities.
+  - **Example:** Imagine setting up a 100 ft climbing wall in the office—the kind of traction that would generate.
+- Normality is ignored as it becomes standard; absurdity sells. Think differently.
 
-> ‘Sleep, Lift, Move,Smile, Laugh, Listen, Read, Save, Hydrate,Fast,Build, Create - Your habits are your future’
-> 
+### Avoid Wallpaper at All Costs
 
-### Always Prioritise your Foundation
+- Habituation is a phenomenon where the brain adjusts to repeated stimuli by ignoring or downgrading their significance. This cognitive process frees up mental capacity for other things, a basic survival mechanism.
+  - **Example:** “Subscribe to this YouTube channel” is usually ignored.
+- Wallpaper refers to the overuse of popular terms, phrases, and calls to action to the point where the brain tunes them out.
+- Great marketing is uncomfortable; it sparks a dormant brain into a neurological frenzy.
 
-You have one body, take care of your health. Their is no greater form of gratitude than taking care of yourself
+### Shoot Your Psychological Moonshots First
 
-## Pillar 2 Story
+This is a fantastic concept, and one of the best in the book.
 
-### Useful absurdity will define you more
+💡 A psychological moonshot is a relatively small investment that drastically improves the perception of something.
 
-- A brands publicity defined more by its usefless absurdity than its useful practicalities.
-    
-    e.g : Assume you setup a 100 ft climbing wall in office ,  sort of traction that it generated
-    
+- **Example:** Uber is a psychological moonshot. It addresses customer needs at a psychological level:
+  1. **The Peak and End Rule:** Customers judge their entire experience based on just two moments—the best (or worst) part and the end.
+  2. **Idleness Aversion:** People who are busy are happier than those who are idle. Uber addresses this by showing you when your driver is arriving.
+  3. **Operational Transparency:** Brands should be glass boxes. Uber gives clear bill details and driver locations.
+  4. **Uncertainty Anxiety:** Domino’s shows the progress of your pizza, addressing the need for certainty.
+  5. **The Goal Gradient Effect:** We work faster as we get closer to achieving a goal.
 
-- Normality is ignored, as this get into standard pattern, Absurdity sells , think different
+> “It’s usually easier to change perception than reality. Our truth is not what we see; our truth is the story we choose to believe.”
 
-### Avoid Wallpaper at all costs
+> “Making things easier isn’t necessarily the path to a psychological moonshot; sometimes you have to do the opposite—increase friction, wait times, and inconvenience—to achieve the same increase in perceived value.”
 
-- Habituation is a phenomenon in which the brains adjusts the repeated stimuli, by ignoring or downgrading their significance . This coginitive phenomenon frees up the mental capacity that we need for other things. this is basics of survival
-    - “e.g: subscribe to this you tube channel is usually ignored”
+> “Value does not exist. It’s a perception we reach with expectations we meet.”
 
-- Wallpaper is a overuse of popular terms, pharses and call for action the point that brain habituates to them and tunes them out
+> “Framing is an important aspect. It isn’t about lying or deception; it’s about presenting your product or service through the most factual and compelling lens.”
 
-- Great marketing is uncomfortable, it springs a dormant brain into a neurological frenzy
+### Use Goldilocks to Your Advantage
 
-### Shoot your psychological moonshots first
+The Goldilocks effect is a type of anchoring—a cognitive bias where individuals rely too heavily on seemingly irrelevant information (the “anchor”) when making decisions. In most scenarios, true value is nothing more than your opinion.
 
-This is a great concept, best in this book
+People tend to make value judgments based on context, so offering a range of options (e.g., economy, standard, and premium) can affect how customers perceive your standard offering.
 
-<aside>
-💡 A Psychological moonshot is a relatively small investment that drastically improves the perception of something
+The context creates the value.
 
-</aside>
+### Let Them Try and They Will Buy
 
-e.g: UBER is a pyschological moonshot , it addresses following customer needs at pyschological level
+Getting your product into customers’ hands remains an incredibly powerful tool for sales, marketing, and branding.
 
-1. The PEAK and END RULE: The Two moments that matter most . Customers will judge their entire experience on just two moments - the best(or worst) part and the end
-2. IDLENESS AVERSION - Our need for justifiable business - *people who are busy are happier than people who are idle , e.g: Uber  give u indication that driver is reaching to your destination while you wait for the car* 
-3. OPERATIONAL TRANSPARENCY - Brands should be Glass boxes
-    
-    e.g: Uber gives clear details of bills, where the driver is etc to lower level . Usually people accept when they know whats happening
-    
-4. UNCERTAINITY ANXIETY - e:g Domino’s visibility of pizza, people dont want pizza delivered faster, but they want certainty
-5. THE GOAL GRADIENT EFFECT - SPEEDING UP NEAR THE FINISH LINE - its been repeatedly proven that what motivates us most is how close we are to achieving a goal. we work faster the closer we are to success
+### Fight for the First 5 Seconds
 
-> Its usually easy to change perception than the reality, Our truth is not what we see, Our truth is the story we choose to believe
-> 
+No matter the medium, you must earn the attention you seek within the first five seconds.
 
-> Making things easier isnt necessarily the path to a psychological moonshot; sometimes you have to do the opposite, increase friction, wait times and inconvenience, to achieve the same increase in perceived value
-> 
+The average human attention span has dropped from 12 seconds to 8 seconds. The quote, “You have the attention span of a goldfish,” is becoming irrelevant, as even goldfish have an attention span of 9 seconds.
 
-> Value does not exist. It’s a perception we reach with expectations we meet
-> 
+> “Attention might just be the most generous gift that anyone can give.”
 
-> Also Framing is important aspect, It isnt about lying and deception. It is about how you present your product or service through most factual and compelling lens
-> 
+## Pillar 3: Philosophy
 
-### Use Goldilocks to your advantage
+### Small Stuff and Small Misses
 
-Goldilocks effect is a type of ‘anchoring’. Its sort of cognitive bias where individuals rely too heavily on seemingly irrelevant information (’the anchor’) when making decisions. In most scenarios true value is something nothing more than your opinion.
+> “Good work is the culmination of hundreds of tiny details, so sweat the small stuff.”
 
-People are inclined to make value judgements based on context, so offering range of options including economy, standard and premium version of your product can tell the story and affect potential customers perception of your standard offering.
+Small misses now create big misses later.
 
-The Context creates the value.
+> “The smallest seeds of today’s negligence will bloom into tomorrow’s biggest secrets.”
 
-### Let them try and they will Buy
+### Don’t Be an Ostrich
 
-Getting your product into customers had remains incredibly powerful tool for sales, marketing and brands
+- Like a proverbial ostrich with its head buried in the sand, avoidance often leads to even greater distress.
+- Accept uncomfortable truths as quickly as possible.
+- Engaging in uncomfortable conversations early paves the way for resolution.
 
-### Fight for first 5 seconds
+> “In business, the person with the fewest blind spots stands the greatest chance of victory.”
 
-No matter whats the medium, you must earn the right to attention you are seeking within first five seconds
+### Your Skill Is Worthless, But Your Context Is More Valuable
 
-Average human attention span is has dropped from 12s to 8s. ‘You have attention span of goldfish’ is becoming  irrelevant quote as even goldfish has attention span of 9 seconds
+- Our skills hold no intrinsic value.
+- The value of any skill is determined by the context in which it’s required.
+- The perceived rarity of a skill influences how much people value it.
+- People will assess the worth of your skill based on how much value they believe it can generate for them.
 
-> ‘Attention might just be the most generous gift that anyone can give’
-> 
+  - **Example:** Joshua Bell’s violin performance in a Washington D.C. subway station vs. performing in a prestigious concert hall.
 
-## Pillar 3 Philosophy
+> “To be considered the best in your industry, you don’t need to be the best at one thing; you need to be good at a variety of complementary and rare skills that your industry values and your competitors lack.”
 
-### Small stuff and Small misses
+### Discipline Equation: Death, Time, and Discipline
 
-> Good work is culmination of hundreds of tiny details, so Sweat on small stuff
-> 
+- Discipline is the ultimate secret to success in any ambition.
+  - Humans struggle to comprehend infinity and time, which slowly creeps in, intangible and invisible.
+  - Death reflection exercises report higher life satisfaction, a stronger desire to spend time wisely, pursue meaningful goals, and increased kindness and generosity.
+  - **Time Betting Mental Model:** You have finite chips, and every chip represents an hour. How will you spend them?
+  - **Discipline Equation:** Value of the Goal + Reward of the Pursuit - Cost of the Pursuit.
 
-Small miss now creates a big miss latter
+> “Being selective about how you spend your time and who you spend it with is the greatest sign of self-respect.”
 
-> Smallest seeds of Todays negligence will bloom into tomorrows biggest secrets
-> 
+## Pillar 4: The Team
 
-### Dont be a ostritch
+### Leverage the Power of Progress—The Superpower of Small Wins
 
-- Like a proverbial ostrich with its head buried in the sand , the avoidance ofen leads to even greater distress
-- Accept uncomfortable truths as fast as possible
-- Engaging in uncomfortable conversation early paves the way for resolution
+- How to create prospective progress in teams:
+  - Create meaning.
+  - Set clear and actionable goals.
+  - Provide autonomy.
+  - Remove friction.
+  - Broadcast progress (Celebrate).
 
-> In Business, the person with fewest blind spots stands the greatest chance of victory
-> 
+> “The most professionally rewarding feeling in the world is a sense of forward motion.”
 
-### Your skill is worthless but your context is more valuable
+### Ask Who, Not How—Delegate
 
-- Our skills hold no intrensic value
-- The value of any skill is determined the context of which its required
-- The perception of skills rarity influences how much people value it
-- People will access the worth of your skill based on how much value they believe it can generate for them
-
-e.g: Joshua Bell Violinist street performance in Washington DC Substation vs performing in a prestigious concert hall
-
-> “To be considered the best in your industry you dont need to be best at ONE THING , You need to be good at variety of complementary and rare skills that your industry values and competitor lacks’
-> 
-
-### Discipline equation - death, time and discipline
-
-- Discipine is the ultimate secret to being successful in any ambition we have
-    - humans struggle to comprehend infinity and also cannot comprehend time, it slowly creeps intangibly and invisbily
-    - death reflection excercises report high life satisfaction, stronger desire to spend time wisely, pursue meaningful goals , increased kindness and generosity
-    - Time Betting mental model - you have finite chips and every chip get spent every hour, then where u will spend
-    - Discipline equation = Value of the Goal + Reward of the Pursuit - Cost of the Pursuit
-    - 
-
-> “Being Selective about how you spend your time and who you spend your time with is greatest sign of self-respect’
-> 
-
-## Pillar 4 - The Team
-
-### Leverage the Power of Progress , Superpower of small wins
-
-- `How to create prospective progress in teams - steps`
-    - `Creating meaning`
-    - `Setting Clear anf Actionable Goals`
-    - `Providing Autonomy`
-    - `Removing Friction`
-    - `Broadcasting Progress (Celebrate)`
-    
-    > *“The most professionally rewarding feeling in the world is sense of Forward motion”*
-    > 
-    
-
-### Ask Who NOT How - Delegate
-
-> ‘Your Ego will insist you do ,Your Potential will insist you delegate
-> 
+> “Your ego will insist you do it, but your potential will insist you delegate.”
 
 ### Raise the Bar
 
-“Definition of the word ‘Company’ is just group of People’
+“The definition of the word ‘company’ is just a group of people.”
 
-### Learning never ends
+### Learning Never Ends
 
-## Find out more(its worth it):
+## Find Out More (It’s Worth It)
 
-You can buy the book : https://www.amazon.com.au/Diary-CEO-Laws-Business-Life/dp/152914650X
-
-Full Audio Book: https://open.spotify.com/show/3CuDAyUZ9XSAXKAYmk7jEu
-
-Podcast: https://open.spotify.com/show/7iQXmUT7XGuZSzAMjoNWlX https://www.youtube.com/TheDiaryOfACEO
+- Buy the book: [The Diary of a CEO: 33 Laws of Business and Life](https://www.amazon.com.au/Diary-CEO-Laws-Business-Life/dp/152914650X)
+- Full Audiobook: [Spotify](https://open.spotify.com/show/3CuDAyUZ9XSAXKAYmk7jEu)
+- Podcast: [Spotify](https://open.spotify.com/show/7iQXmUT7XGuZSzAMjoNWlX) | [YouTube](https://www.youtube.com/TheDiaryOfACEO)
