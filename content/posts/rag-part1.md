@@ -1,6 +1,6 @@
 ---
 title: "Retrieval Augmented Generation(RAG) Deep Dive into Best Practices & Architectures - Series 1"
-date: 2025-01-27T11:30:03+00:00
+date: 2025-11-27T11:30:03+00:00
 draft: false
 tags: ["RAG", "LLMs", "AI"]
 author: "Navan Tirupathi"
