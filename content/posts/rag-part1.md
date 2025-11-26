@@ -167,7 +167,7 @@ RAG is no longer about magic; it is about engineering discipline. Focus on **Dat
 
 Start with the baseline configuration, measure your "Triad" scores, and only move to Agentic or Graph architectures when your use case demands complex reasoning or multi-hop relational data.
 
-*In series we will explore on best practices of Agentic RAG and Knowledge Graph*
+*In Next series we will explore on best practices of Agentic RAG and Knowledge Graph*
 
 ## ***References***
 
