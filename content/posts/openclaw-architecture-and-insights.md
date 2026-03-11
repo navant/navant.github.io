@@ -1,6 +1,6 @@
 ---
 title: "OpenClaw Architecture and Insights"
-date: 2025-11-24T11:30:03+00:00
+date: 2026-02-20T11:30:03+00:00
 draft: false
 tags: ["OpenClaw", "AI", "LLMs", "Architecture"]
 author: "Navan Tirupathi"

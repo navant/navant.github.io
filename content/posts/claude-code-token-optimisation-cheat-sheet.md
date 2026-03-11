@@ -1,8 +1,8 @@
 ---
 title: "Claude Code – Token Optimisation Cheat Sheet"
-date: 2025-02-16T11:30:03+00:00
+date: 2026-03-10T11:30:03+00:00
 draft: false
-tags: ["Claude", "AI", "Developer Tools", "Tokens"]
+tags: ["Claude", "AI", "Developer Tools"]
 author: "Navan Tirupathi"
 showToc: true
 TocOpen: false
