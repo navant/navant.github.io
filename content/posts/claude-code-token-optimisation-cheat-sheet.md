@@ -36,6 +36,8 @@ AI coding tools like Claude Code can dramatically speed up development, but cost
 
 I’ve collated a short checklist, from one-time setup to daily workflow habits, to reduce token usage, lower cost, and keep Claude responses fast and reliable. These can save **30–50%** of your Claude Code cost.
 
+![Claude Code Token Optimisation Cheat Sheet](/cc_token_optimise.png)
+
 ## Checklist: Setup and Workflow
 
 | Action | Setup / Example | Why |
