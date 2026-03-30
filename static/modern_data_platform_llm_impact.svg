@@ -1,7 +1,7 @@
 <svg width="100%" viewBox="0 0 680 835" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
-    <!-- Legend-aligned palette: disrupt #c2410c | supplement #0369a1 | same #57534e -->
+    <!-- Text colours = legend; row tabs = neutral (same for every layer) -->
   </defs>
 
   <rect width="680" height="835" fill="#f4f2ee"/>
@@ -9,83 +9,83 @@
   <text x="340" y="32" text-anchor="middle" fill="#111827" font-family="-apple-system, system-ui, 'Segoe UI', sans-serif" font-size="18" font-weight="600">Modern data platform × LLM impact</text>
   <text x="340" y="52" text-anchor="middle" fill="#4b5563" font-family="-apple-system, system-ui, 'Segoe UI', sans-serif" font-size="12">Which layers get disrupted?</text>
 
-  <!-- Legend (swatches = row stroke colours below) -->
+  <!-- Legend: swatches + labels in matching ink -->
   <g transform="translate(40, 70)" font-family="-apple-system, system-ui, 'Segoe UI', sans-serif">
     <rect x="0" y="0" width="16" height="16" rx="3" fill="#c2410c"/>
-    <text x="24" y="13" fill="#111827" font-size="12">LLM disrupts</text>
+    <text x="24" y="13" fill="#c2410c" font-size="12" font-weight="600">LLM disrupts</text>
     <rect x="200" y="0" width="16" height="16" rx="3" fill="#0369a1"/>
-    <text x="224" y="13" fill="#111827" font-size="12">LLM supplements</text>
+    <text x="224" y="13" fill="#0369a1" font-size="12" font-weight="600">LLM supplements</text>
     <rect x="400" y="0" width="16" height="16" rx="3" fill="#57534e"/>
-    <text x="424" y="13" fill="#111827" font-size="12">Stays the same</text>
+    <text x="424" y="13" fill="#57534e" font-size="12" font-weight="600">Stays the same</text>
   </g>
 
-  <!-- 1 Ingestion — supplement: blue fill family + legend blue stroke -->
+  <!-- 1 supplement -->
   <g transform="translate(40, 105)" font-family="-apple-system, system-ui, 'Segoe UI', sans-serif">
-    <rect x="0" y="0" width="600" height="64" rx="8" fill="#e0f2fe" stroke="#0369a1" stroke-width="0.75"/>
-    <text x="20" y="24" fill="#111827" font-size="14" font-weight="600">1. Ingestion</text>
+    <rect x="0" y="0" width="600" height="64" rx="8" fill="#ffffff" stroke="#d6d3d1" stroke-width="0.75"/>
+    <text x="20" y="24" fill="#0369a1" font-size="14" font-weight="600">1. Ingestion</text>
     <text x="20" y="42" fill="#0c4a6e" font-size="12">LLM agents auto-discover sources, generate connectors, handle schema drift</text>
   </g>
 
-  <!-- 2 Transform — disrupt: orange fill family + legend disrupt stroke -->
+  <!-- 2 disrupt -->
   <g transform="translate(40, 177)" font-family="-apple-system, system-ui, 'Segoe UI', sans-serif">
-    <rect x="0" y="0" width="600" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.25"/>
-    <text x="20" y="24" fill="#111827" font-size="14" font-weight="600">2. Transform ⚡</text>
+    <rect x="0" y="0" width="600" height="64" rx="8" fill="#ffffff" stroke="#d6d3d1" stroke-width="0.75"/>
+    <text x="20" y="24" fill="#c2410c" font-size="14" font-weight="600">2. Transform ⚡</text>
     <text x="20" y="42" fill="#9a3412" font-size="12">Text-to-SQL, natural language pipelines, auto-generated dbt models</text>
   </g>
 
-  <!-- 3 Storage — same: neutral fill + legend stone stroke -->
+  <!-- 3 same -->
   <g transform="translate(40, 249)" font-family="-apple-system, system-ui, 'Segoe UI', sans-serif">
-    <rect x="0" y="0" width="600" height="64" rx="8" fill="#f5f5f4" stroke="#57534e" stroke-width="0.75"/>
-    <text x="20" y="24" fill="#111827" font-size="14" font-weight="600">3. Storage</text>
-    <text x="20" y="42" fill="#44403c" font-size="12">Still need Iceberg, warehouses, object storage — LLMs don't replace infra</text>
+    <rect x="0" y="0" width="600" height="64" rx="8" fill="#ffffff" stroke="#d6d3d1" stroke-width="0.75"/>
+    <text x="20" y="24" fill="#57534e" font-size="14" font-weight="600">3. Storage</text>
+    <text x="20" y="42" fill="#78716c" font-size="12">Still need Iceberg, warehouses, object storage — LLMs don't replace infra</text>
   </g>
 
-  <!-- 4 BI — disrupt -->
+  <!-- 4 disrupt -->
   <g transform="translate(40, 321)" font-family="-apple-system, system-ui, 'Segoe UI', sans-serif">
-    <rect x="0" y="0" width="600" height="64" rx="8" fill="#ffedd5" stroke="#c2410c" stroke-width="1.25"/>
-    <text x="20" y="24" fill="#111827" font-size="14" font-weight="600">4. BI / visualization ⚡</text>
+    <rect x="0" y="0" width="600" height="64" rx="8" fill="#ffffff" stroke="#d6d3d1" stroke-width="0.75"/>
+    <text x="20" y="24" fill="#c2410c" font-size="14" font-weight="600">4. BI / visualization ⚡</text>
     <text x="20" y="42" fill="#9a3412" font-size="12">Chat-based analytics, auto-generated dashboards, "ask your data"</text>
   </g>
 
-  <!-- 5 Semantic — disrupt -->
+  <!-- 5 disrupt -->
   <g transform="translate(40, 393)" font-family="-apple-system, system-ui, 'Segoe UI', sans-serif">
-    <rect x="0" y="0" width="600" height="64" rx="8" fill="#fed7aa" stroke="#c2410c" stroke-width="1.25"/>
-    <text x="20" y="24" fill="#111827" font-size="14" font-weight="600">5. Semantic ⚡</text>
+    <rect x="0" y="0" width="600" height="64" rx="8" fill="#ffffff" stroke="#d6d3d1" stroke-width="0.75"/>
+    <text x="20" y="24" fill="#c2410c" font-size="14" font-weight="600">5. Semantic ⚡</text>
     <text x="20" y="42" fill="#9a3412" font-size="12">LLMs become the semantic layer — understand context without rigid models</text>
   </g>
 
-  <!-- 6 Governance — supplement -->
+  <!-- 6 supplement -->
   <g transform="translate(40, 465)" font-family="-apple-system, system-ui, 'Segoe UI', sans-serif">
-    <rect x="0" y="0" width="600" height="64" rx="8" fill="#dbeafe" stroke="#0369a1" stroke-width="0.75"/>
-    <text x="20" y="24" fill="#111827" font-size="14" font-weight="600">6. Governance</text>
+    <rect x="0" y="0" width="600" height="64" rx="8" fill="#ffffff" stroke="#d6d3d1" stroke-width="0.75"/>
+    <text x="20" y="24" fill="#0369a1" font-size="14" font-weight="600">6. Governance</text>
     <text x="20" y="42" fill="#0c4a6e" font-size="12">Auto-classify PII, generate documentation, explain lineage in plain English</text>
   </g>
 
-  <!-- 7 ML — supplement -->
+  <!-- 7 supplement -->
   <g transform="translate(40, 537)" font-family="-apple-system, system-ui, 'Segoe UI', sans-serif">
-    <rect x="0" y="0" width="600" height="64" rx="8" fill="#f0f9ff" stroke="#0369a1" stroke-width="0.75"/>
-    <text x="20" y="24" fill="#111827" font-size="14" font-weight="600">7. ML / analytics</text>
+    <rect x="0" y="0" width="600" height="64" rx="8" fill="#ffffff" stroke="#d6d3d1" stroke-width="0.75"/>
+    <text x="20" y="24" fill="#0369a1" font-size="14" font-weight="600">7. ML / analytics</text>
     <text x="20" y="42" fill="#0c4a6e" font-size="12">LLMs orchestrate ML pipelines, generate features, explain model outputs</text>
   </g>
 
-  <!-- 8 Security — supplement -->
+  <!-- 8 supplement -->
   <g transform="translate(40, 609)" font-family="-apple-system, system-ui, 'Segoe UI', sans-serif">
-    <rect x="0" y="0" width="600" height="64" rx="8" fill="#e0f2fe" stroke="#0369a1" stroke-width="0.75"/>
-    <text x="20" y="24" fill="#111827" font-size="14" font-weight="600">8. Security</text>
+    <rect x="0" y="0" width="600" height="64" rx="8" fill="#ffffff" stroke="#d6d3d1" stroke-width="0.75"/>
+    <text x="20" y="24" fill="#0369a1" font-size="14" font-weight="600">8. Security</text>
     <text x="20" y="42" fill="#0c4a6e" font-size="12">Anomaly detection, policy generation, but humans still own access control</text>
   </g>
 
-  <!-- 9 Infra — same -->
+  <!-- 9 same -->
   <g transform="translate(40, 681)" font-family="-apple-system, system-ui, 'Segoe UI', sans-serif">
-    <rect x="0" y="0" width="600" height="64" rx="8" fill="#e7e5e4" stroke="#57534e" stroke-width="0.75"/>
-    <text x="20" y="24" fill="#111827" font-size="14" font-weight="600">9. Infra / ops</text>
-    <text x="20" y="42" fill="#44403c" font-size="12">Terraform, K8s stay — LLMs help write IaC, not replace it</text>
+    <rect x="0" y="0" width="600" height="64" rx="8" fill="#ffffff" stroke="#d6d3d1" stroke-width="0.75"/>
+    <text x="20" y="24" fill="#57534e" font-size="14" font-weight="600">9. Infra / ops</text>
+    <text x="20" y="42" fill="#78716c" font-size="12">Terraform, K8s stay — LLMs help write IaC, not replace it</text>
   </g>
 
-  <!-- 10 Observability — supplement -->
+  <!-- 10 supplement -->
   <g transform="translate(40, 753)" font-family="-apple-system, system-ui, 'Segoe UI', sans-serif">
-    <rect x="0" y="0" width="600" height="64" rx="8" fill="#bae6fd" stroke="#0369a1" stroke-width="0.75"/>
-    <text x="20" y="24" fill="#111827" font-size="14" font-weight="600">10. Observability</text>
+    <rect x="0" y="0" width="600" height="64" rx="8" fill="#ffffff" stroke="#d6d3d1" stroke-width="0.75"/>
+    <text x="20" y="24" fill="#0369a1" font-size="14" font-weight="600">10. Observability</text>
     <text x="20" y="42" fill="#0c4a6e" font-size="12">Root cause analysis, anomaly explanation, auto-fix suggestions</text>
   </g>
 
