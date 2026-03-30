@@ -1,5 +1,5 @@
 ---
-title: "Modern Data Platform — How It Will Evolve with LLMs"
+title: "Modern Data Platform — How it evolves with LLMs"
 date: 2026-03-15T11:30:03+00:00
 draft: false
 tags: ["Data Platform", "LLMs", "Data Engineering", "Analytics"]
@@ -32,11 +32,9 @@ editPost:
     appendFilePath: true
 ---
 
-# Modern Data Platform — How It Will Evolve with LLMs
-
 The modern data platform stack is maturing while AI shakes things up at the same time. Here is how LLMs touch each layer of the ten-layer stack — and what barely moves.
 
-## What is a Modern Data Platform?
+## What is a modern data platform?
 
 A modern data platform is the full path from raw data to useful insight. It pulls data in from databases, APIs, and streams. It shapes it into models you can use. It stores it in warehouses and lakehouses. It feeds dashboards, analysts, and ML models. And it governs the lot — who can see what, where it came from, and whether you can trust it.
 
