@@ -2,13 +2,13 @@
 title: "Modern Data Platform — How it evolves with LLMs"
 date: 2026-03-15T11:30:03+00:00
 draft: false
-tags: ["Data Platform", "LLMs", "Data Engineering", "Analytics"]
+tags: ["Data Platform", "LLMs", "Agents", "Data Engineering", "Analytics"]
 author: "Navan Tirupathi"
 showToc: true
 TocOpen: false
 hidemeta: false
 comments: false
-description: "How LLMs reshape each layer of the modern data platform—from ingestion to observability—with before/after notes, practical takes, and a watch list for 2025–2026."
+description: "How LLMs and agents reshape each layer of the modern data platform—from ingestion to observability—with before/after notes, where agents fit cross-cutting, practical takes, and a watch list for 2025–2026."
 canonicalURL: "https://navant.github.io/posts/modern-data-platform-llm-evolution/"
 disableHLJS: false
 disableShare: false
@@ -59,7 +59,7 @@ Every large organisation runs some version of this. The tools vary — cloud-nat
 While everyone debated whether LLMs would replace data engineers, the modern data platform quietly built the foundation that makes AI useful:
 
 - **Open table formats won.** Iceberg became the strategic default. Portable data means AI tools aren't locked to one vendor.
-- **Catalogs became metadata APIs.** Unity Catalog, Polaris, Dataplex — the context LLMs need to understand your data now lives in queryable systems.
+- **Catalogues became metadata APIs.** Unity Catalog, Polaris, Dataplex — the context LLMs need to understand your data now lives in queryable systems.
 - **Semantic layers matured.** dbt metrics, Cube, Snowflake Semantic Views — governed definitions AI can trust.
 - **Text-to-SQL went production.** Snowflake Cortex Analyst, Databricks Genie, ThoughtSpot Sage — not demos, real features with 95% accuracy on governed datasets.
 - **Warehouses became AI runtimes.** Snowflake Cortex AISQL, Databricks AI Functions — call LLMs from SQL. The warehouse isn't just storage anymore.
@@ -88,7 +88,7 @@ Here is how each layer evolves:
 |9. Infra / Ops|Terraform, Kubernetes, monitoring|LLMs help write IaC, don't replace it|No change|
 |10. Observability|Great Expectations, Monte Carlo, Soda|Root cause analysis in natural language, auto-fix suggestions|Supplemented|
 
-**Summary:** 2 layers disrupted, 5 layers supplemented, 3 layers unchanged.
+**Summary:** 2 layers disrupted, 5 layers supplemented, 3 layers unchanged. **Agents** sit across those layers — there is a dedicated section after the layer-by-layer notes; they orchestrate tools and APIs and do not replace the foundation.
 
 ---
 
@@ -252,6 +252,22 @@ LLMs help you _write_ Terraform faster. They help you _debug_ Kubernetes issues.
 **What stays the same:** You need to detect the problem before you can explain it. Proper monitoring comes first.
 {{< /collapse >}}
 
+## Agents: where they fit
+
+**Agents are not an eleventh layer** — they cut across the ten. A single-turn chat answer is one pattern; an **agent** is closer to a **bounded loop**: plan → call tools (SQL, APIs, tickets, orchestrator triggers) → observe results → stop or escalate. The warehouse, formats, and orchestration underneath stay the same; the agent is the *control surface* that coordinates them.
+
+**Where they show up in practice:**
+
+- **Ingestion and integration** — scaffolding connectors, proposing mappings after schema drift, or driving repeatable “onboard this source” runbooks (humans still own production cutover).
+- **Transforms and analytics** — multi-step workflows: clarify the question, run governed SQL, check row counts, produce a chart or narrative — not only one-shot text-to-SQL.
+- **Governance and catalogues** — draft descriptions, suggest PII tags, queue human review (the “agentic catalog” pattern vendors are shipping).
+- **Observability** — triage incidents, correlate failures, suggest fixes; execution and alerting stay in your existing tools.
+- **Orchestration** — agents as a layer *above* Airflow/Dagster/Prefect: deciding *when* to trigger jobs or backfills from events and policies, not replacing the scheduler.
+
+**What stays non-negotiable:** tool allowlists, session boundaries, audit trails, and human approval for anything sensitive. “The agent did it” is not a governance strategy.
+
+**Summary:** chat lowers the floor for ad-hoc questions; **agents** raise the ceiling for repeatable, multi-step data work — still grounded in the same storage, semantics, and catalogues as before.
+
 ## Build vs buy: what shifts
 
 LLMs change what it costs to build things in-house versus pay a vendor:
@@ -282,6 +298,7 @@ The stack is consolidating around fewer, more capable platforms:
 - **BI-as-code enabling AI-generated dashboards** — Evidence, Rill, Lightdash turn dashboards into code artifacts that LLMs can write and maintain
 - **Orchestrators becoming control planes** — Dagster and Airflow 3.0 pulling in catalogue, observability, cost management
 - **Catalogues going agentic** — auto-documentation, auto-classification, auto-policy (Alation, Atlan, Informatica)
+- **Agents on top of the stack** — planners with tools (SQL, orchestrator, tickets) for multi-step workflows; governance and allowlists matter more, not less
 - **Observability extending to AI** — monitoring model inputs AND outputs, not just data pipelines
 - **Open formats winning** — Iceberg as strategic default, OSI for semantic layer interoperability
 
@@ -307,12 +324,14 @@ This article covers a lot. Here is how to act on it:
 
 **6. Treat governance as AI infrastructure.** Every investment in catalogues, semantic layers, and lineage pays off again when AI queries your data. The better your metadata, the better AI works. Governance isn't overhead anymore — it's the foundation that makes everything else possible.
 
+**7. If you pilot agents, scope them tightly.** Pick one workflow (e.g. “monthly metrics pack” or “incident triage”) with explicit tools, a human-in-the-loop step, and logging. Agents amplify mistakes as well as speed — metadata and policies are your guardrails.
+
 
 ## Closing Remarks
 
-The modern data platform isn't being replaced. It's getting a new interface — and that interface speaks English.
+The modern data platform isn't being replaced. It's getting a new interface — and that interface speaks English. **Agents** add a second pattern: not only “ask once,” but “run a short, tool-backed workflow” with the same foundations underneath.
 
-The biggest shift isn't technical — it's who can work with data. Natural language drops the barrier to zero. Data teams shift from "answer questions" to "build foundations that let anyone answer questions."
+The biggest shift isn't technical — it's who can work with data. Natural language drops the barrier to zero. Data teams shift from "answer questions" to "build foundations that let anyone answer questions" — and, where it pays off, **governed agent workflows** on top.
 
 The AI layer amplifies whatever foundation you've built. Better metadata, cleaner catalogues, governed metrics — these amplify everything you build on top. Weak foundations show up faster.
 
