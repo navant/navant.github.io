@@ -21,9 +21,9 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>"
-    alt: "<alt text>"
-    caption: "<text>"
+    image: "/modern_data_platform_llm_impact.png"
+    alt: "Diagram — LLM impact across the ten layers of a modern data platform"
+    caption: ""
     relative: false
     hidden: true
 editPost:
