@@ -71,9 +71,7 @@ This foundation matters. LLMs don't replace infrastructure — they query it. Be
 
 ## The 10-Layer Stack: Before and After LLMs
 
-{{< rawhtml >}}
-<img src="/modern_data_platform_llm_impact.png" alt="How LLMs impact each layer of the modern data platform" width="680" height="835" loading="lazy" decoding="async" style="max-width:100%;height:auto">
-{{< /rawhtml >}}
+![How LLMs impact each layer of the modern data platform](/modern_data_platform_llm_impact.svg)
 
 Here is how each layer evolves:
 
