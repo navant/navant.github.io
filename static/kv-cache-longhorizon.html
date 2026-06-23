@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KV Cache: Long Horizon Tasks</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #0f1117;
+    color: #e2e8f0;
+    padding: 32px 24px;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  h1 { font-size: 20px; font-weight: 600; color: #f8fafc; margin-bottom: 4px; letter-spacing: -0.02em; }
+  .sub { font-size: 12px; color: #64748b; margin-bottom: 28px; }
+
+  .tabs {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 0;
+    border-bottom: 1px solid #1e2433;
+  }
+  .tab {
+    padding: 9px 18px;
+    border-radius: 6px 6px 0 0;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #64748b;
+    border: 1px solid transparent;
+    border-bottom: none;
+    transition: all 0.15s;
+    background: transparent;
+    margin-bottom: -1px;
+    user-select: none;
+  }
+  .tab:hover { color: #94a3b8; background: #141820; }
+  .tab.active { color: #f8fafc; background: #1a1f2e; border-color: #1e2433; border-bottom-color: #1a1f2e; }
+
+  .panel { display: none; background: #1a1f2e; border: 1px solid #1e2433; border-top: none; border-radius: 0 0 8px 8px; padding: 24px; }
+  .panel.active { display: block; }
+
+  .section-title {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #334155;
+    margin: 22px 0 12px;
+  }
+  .section-title:first-child { margin-top: 0; }
+
+  /* Timeline */
+  .tl-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    min-height: 48px;
+    margin-bottom: 4px;
+  }
+  .tl-label {
+    font-size: 11px;
+    color: #475569;
+    padding: 10px 14px 10px 0;
+    text-align: right;
+    border-right: 2px solid #1e2433;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-top: 12px;
+  }
+  .tl-content { padding: 8px 0 8px 16px; }
+
+  .block-row { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+
+  .block {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 9px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    cursor: default;
+    transition: opacity 0.2s;
+  }
+  .cached    { background: #0d2d1a; border-color: #166534; color: #4ade80; }
+  .miss      { background: #2d0d0d; border-color: #7f1d1d; color: #f87171; }
+  .warn      { background: #2d1f0d; border-color: #7c3a0d; color: #fb923c; }
+  .neutral   { background: #0f1117; border-color: #2d3748; color: #64748b; }
+  .highlight { background: #0d1f3d; border-color: #1d4ed8; color: #60a5fa; }
+
+  .arrow { color: #334155; font-size: 12px; margin: 0 1px; }
+
+  .anno {
+    font-size: 11px;
+    color: #475569;
+    margin-top: 5px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .anno.bad  { color: #f87171; }
+  .anno.good { color: #4ade80; }
+  .anno.warn { color: #fb923c; }
+
+  .callout {
+    background: #0d1f3d;
+    border: 1px solid #1d4ed8;
+    border-radius: 7px;
+    padding: 13px 16px;
+    margin: 18px 0;
+    font-size: 12.5px;
+    color: #93c5fd;
+    line-height: 1.65;
+  }
+  .callout strong { color: #bfdbfe; }
+
+  .code {
+    background: #070c14;
+    border: 1px solid #1e2433;
+    border-radius: 6px;
+    padding: 13px 16px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 11.5px;
+    line-height: 1.85;
+    margin: 10px 0;
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .c-g { color: #4ade80; }
+  .c-r { color: #f87171; }
+  .c-y { color: #fbbf24; }
+  .c-b { color: #60a5fa; }
+  .c-m { color: #475569; }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #334155;
+    padding: 8px 10px;
+    border-bottom: 1px solid #1e2433;
+  }
+  td { padding: 9px 10px; border-bottom: 1px solid #141820; vertical-align: top; line-height: 1.55; color: #94a3b8; }
+  td:first-child { font-family: 'SF Mono', monospace; font-size: 11px; color: #f87171; }
+  td:last-child { color: #4ade80; font-size: 11px; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #1e2433; }
+
+  .tl-divider { height: 1px; background: #1e2433; margin: 8px 0 12px 126px; }
+</style>
+</head>
+<body>
+
+<h1>KV Cache: Long Horizon Tasks</h1>
+<p class="sub">What happens to your cache across agent loops, user edits, and persistent rules</p>
+
+<div class="tabs">
+  <div class="tab active"   onclick="show('agent', this)">Agent loops</div>
+  <div class="tab"          onclick="show('edits', this)">User edits</div>
+  <div class="tab"          onclick="show('rules', this)">Rules / AGENTS.md</div>
+  <div class="tab"          onclick="show('impact', this)">Full impact table</div>
+</div>
+
+<!-- ── AGENT LOOPS ── -->
+<div id="agent" class="panel active">
+
+  <div class="section-title">What the cache looks like across an agent loop</div>
+
+  <div class="tl-row">
+    <div class="tl-label">t=0 load</div>
+    <div class="tl-content">
+      <div class="block-row">
+        <span class="block highlight">AGENTS.md</span>
+        <span class="block highlight">system prompt</span>
+        <span class="block highlight">tool definitions</span>
+      </div>
+      <div class="anno good">✓ Heavy prefix loaded once, cached on first pass, free on every loop after</div>
+    </div>
+  </div>
+
+  <div class="tl-row">
+    <div class="tl-label">t=1</div>
+    <div class="tl-content">
+      <div class="block-row">
+        <span class="block cached">prefix ✓</span>
+        <span class="arrow">+</span>
+        <span class="block highlight">user task</span>
+      </div>
+      <div class="anno good">✓ Cache hit on prefix. Only the new task tokens are processed.</div>
+    </div>
+  </div>
+
+  <div class="tl-row">
+    <div class="tl-label">t=2</div>
+    <div class="tl-content">
+      <div class="block-row">
+        <span class="block cached">prefix ✓</span>
+        <span class="block cached">task ✓</span>
+        <span class="arrow">+</span>
+        <span class="block highlight">tool_call: read_file()</span>
+      </div>
+      <div class="anno good">✓ Append-only. Cache grows forward cleanly.</div>
+    </div>
+  </div>
+
+  <div class="tl-row">
+    <div class="tl-label">t=3</div>
+    <div class="tl-content">
+      <div class="block-row">
+        <span class="block cached">prefix ✓</span>
+        <span class="block cached">task ✓</span>
+        <span class="block cached">tool_call ✓</span>
+        <span class="arrow">+</span>
+        <span class="block warn">tool_result: 8,000 tokens</span>
+      </div>
+      <div class="anno warn">⚠ Raw output appended. Cache grows fast, fine for now.</div>
+    </div>
+  </div>
+
+  <div class="tl-divider"></div>
+
+  <div class="tl-row">
+    <div class="tl-label">t=4 ✗ wrong</div>
+    <div class="tl-content">
+      <div class="block-row">
+        <span class="block cached">prefix ✓</span>
+        <span class="block cached">task ✓</span>
+        <span class="block miss">tool_result DELETED</span>
+        <span class="arrow">+</span>
+        <span class="block neutral">next step</span>
+      </div>
+      <div class="anno bad">✗ Agent deletes raw output to "save space." Sequence breaks. Full miss from t=3 forward.</div>
+    </div>
+  </div>
+
+  <div class="tl-row">
+    <div class="tl-label">t=4 ✓ right</div>
+    <div class="tl-content">
+      <div class="block-row">
+        <span class="block cached">prefix ✓</span>
+        <span class="block cached">task ✓</span>
+        <span class="block cached">tool_call ✓</span>
+        <span class="block highlight">[ref#1: summary]</span>
+        <span class="arrow">+</span>
+        <span class="block neutral">next step</span>
+      </div>
+      <div class="anno good">✓ Verbose output replaced with placeholder. Sequence intact. Cache preserved.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>The core agent rule:</strong> never delete from history mid-loop. Replace verbose tool outputs with a compact tag like <code>[Tool result masked: ref#1, 47 rows returned]</code>. The timeline stays intact, VRAM pressure drops, and the model still knows what happened at each step.
+  </div>
+
+  <div class="section-title">Across multiple loops, what it looks like in code</div>
+  <div class="code"><span class="c-m"># Loop 1, prefix cached on first pass</span>
+<span class="c-b">context:</span> [AGENTS.md][system][tools][user_task]    <span class="c-g">← all cached</span>
+
+<span class="c-m"># Loop 2, appends cleanly</span>
+<span class="c-b">context:</span> [prefix✓][task✓][tool_call][tool_result_raw]
+
+<span class="c-m"># Loop 3, agent removes tool_result to slim context</span>
+<span class="c-r">context:</span> [prefix✓][task✓][tool_call][ GAP ]       <span class="c-r">← sequence broken</span>
+<span class="c-r">result:</span>  everything after the gap recomputes from scratch
+
+<span class="c-m"># Loop 3, correct</span>
+<span class="c-g">context:</span> [prefix✓][task✓][tool_call][ref#1]       <span class="c-g">← placeholder, intact</span>
+<span class="c-g">result:</span>  cache hit, fast, model knows ref#1 = the file read</div>
+
+</div>
+
+<!-- ── USER EDITS ── -->
+<div id="edits" class="panel">
+
+  <div class="section-title">The edit problem, why "fixing" a message is expensive</div>
+
+  <div class="tl-row">
+    <div class="tl-label">baseline</div>
+    <div class="tl-content">
+      <div class="block-row">
+        <span class="block cached">msg 1 ✓</span>
+        <span class="block cached">msg 2 ✓</span>
+        <span class="block cached">msg 3 ✓</span>
+        <span class="block cached">msg 4 ✓</span>
+        <span class="block cached">msg 5 ✓</span>
+      </div>
+      <div class="anno good">✓ Full thread cached. Every new message is near-instant.</div>
+    </div>
+  </div>
+
+  <div class="tl-row">
+    <div class="tl-label">edit msg 2</div>
+    <div class="tl-content">
+      <div class="block-row">
+        <span class="block cached">msg 1 ✓</span>
+        <span class="block miss">msg 2 ✗</span>
+        <span class="block miss">msg 3 ✗</span>
+        <span class="block miss">msg 4 ✗</span>
+        <span class="block miss">msg 5 ✗</span>
+      </div>
+      <div class="anno bad">✗ Edit at position 2 invalidates msgs 3–5. Everything downstream recomputes.</div>
+    </div>
+  </div>
+
+  <div class="tl-row">
+    <div class="tl-label">edit msg 4</div>
+    <div class="tl-content">
+      <div class="block-row">
+        <span class="block cached">msg 1 ✓</span>
+        <span class="block cached">msg 2 ✓</span>
+        <span class="block cached">msg 3 ✓</span>
+        <span class="block miss">msg 4 ✗</span>
+        <span class="block miss">msg 5 ✗</span>
+      </div>
+      <div class="anno warn">⚠ Editing later is cheaper, but still invalidates everything after it.</div>
+    </div>
+  </div>
+
+  <div class="tl-row">
+    <div class="tl-label">append instead</div>
+    <div class="tl-content">
+      <div class="block-row">
+        <span class="block cached">msg 1 ✓</span>
+        <span class="block cached">msg 2 ✓</span>
+        <span class="block cached">msg 3 ✓</span>
+        <span class="block cached">msg 4 ✓</span>
+        <span class="block cached">msg 5 ✓</span>
+        <span class="block highlight">correction +</span>
+      </div>
+      <div class="anno good">✓ Entire history stays cached. Only the correction tokens are new.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Editing earlier = more damage.</strong> An edit at message 2 of a 20-message thread invalidates 18 messages worth of cached vectors. An edit at message 19 invalidates 1. But neither is free. The only zero-cost correction is a new message at the bottom.
+  </div>
+
+  <div class="section-title">The branch problem, editing creates a fork</div>
+  <div class="code"><span class="c-m"># Original thread</span>
+msg1 → msg2 → msg3 → msg4 → msg5      <span class="c-g">← all cached</span>
+
+<span class="c-m"># You edit msg2 and regenerate</span>
+msg1 → msg2' → msg3' → msg4' → msg5'  <span class="c-r">← new branch, zero cache overlap</span>
+
+<span class="c-m"># The original thread is gone.</span>
+<span class="c-m"># The model now lives in a parallel timeline.</span>
+<span class="c-m"># If you reference a decision made in the original thread,</span>
+<span class="c-r"># the model has no idea what you're talking about.</span>
+
+<span class="c-m"># With long-horizon coding tasks this compounds fast:</span>
+<span class="c-r"># architectural decisions, variable names, API contracts</span>
+<span class="c-r"># agreed in the old branch are invisible in the new one.</span></div>
+
+</div>
+
+<!-- ── RULES / AGENTS.MD ── -->
+<div id="rules" class="panel">
+
+  <div class="section-title">How rules, skills, and AGENTS.md interact with the cache</div>
+
+  <div class="tl-row">
+    <div class="tl-label">ideal order</div>
+    <div class="tl-content">
+      <div class="block-row">
+        <span class="block highlight">AGENTS.md</span>
+        <span class="block highlight">SKILL.md</span>
+        <span class="block highlight">system prompt</span>
+        <span class="block highlight">tools</span>
+        <span class="arrow">→</span>
+        <span class="block neutral">user message</span>
+      </div>
+      <div class="anno good">✓ Static prefix. Cached once, reused across every request in the session.</div>
+    </div>
+  </div>
+
+  <div class="tl-row">
+    <div class="tl-label">common mistake</div>
+    <div class="tl-content">
+      <div class="block-row">
+        <span class="block miss">timestamp at top</span>
+        <span class="block miss">AGENTS.md</span>
+        <span class="block miss">SKILL.md</span>
+        <span class="block neutral">user message</span>
+      </div>
+      <div class="anno bad">✗ One dynamic token at position 1 invalidates AGENTS.md, SKILL.md, everything. Full miss every single request.</div>
+    </div>
+  </div>
+
+  <div class="tl-row">
+    <div class="tl-label">mid-task skill</div>
+    <div class="tl-content">
+      <div class="block-row">
+        <span class="block cached">AGENTS.md ✓</span>
+        <span class="block cached">SKILL_A ✓</span>
+        <span class="arrow">+</span>
+        <span class="block highlight">SKILL_B loaded now</span>
+      </div>
+      <div class="anno warn">⚠ Adding a new skill mid-thread appends cleanly. Cache hit on everything before, only SKILL_B is new. Fine.</div>
+    </div>
+  </div>
+
+  <div class="tl-row">
+    <div class="tl-label">skill reorder</div>
+    <div class="tl-content">
+      <div class="block-row">
+        <span class="block cached">AGENTS.md ✓</span>
+        <span class="block miss">SKILL_B first</span>
+        <span class="block miss">SKILL_A second</span>
+      </div>
+      <div class="anno bad">✗ Swapping skill order across sessions changes token positions. No prefix match. Miss every time.</div>
+    </div>
+  </div>
+
+  <div class="tl-row">
+    <div class="tl-label">edit AGENTS.md</div>
+    <div class="tl-content">
+      <div class="block-row">
+        <span class="block miss">AGENTS.md v2</span>
+        <span class="block miss">SKILL.md</span>
+        <span class="block miss">tools</span>
+        <span class="block neutral">user msg</span>
+      </div>
+      <div class="anno bad">✗ Any edit to AGENTS.md between sessions changes the prefix. Full re-ingestion next load, even for a one-word change.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>AGENTS.md is your most expensive asset.</strong> If it's 2,000 tokens and loads on every request, keeping it byte-for-byte identical means you pay to process it once, then it's free. Every edit, however small, costs a full re-ingestion next time. Treat it like a database schema: change it intentionally, not casually.
+  </div>
+
+  <div class="section-title">Optimal prefix order, most to least stable</div>
+  <div class="code"><span class="c-g">[1] AGENTS.md / global rules</span>     <span class="c-m">← never changes mid-session</span>
+<span class="c-g">[2] SKILL.md files</span>                <span class="c-m">← stable, fixed order, always</span>
+<span class="c-g">[3] tool definitions</span>              <span class="c-m">← stable per session</span>
+<span class="c-y">[4] background docs / context</span>     <span class="c-m">← stable once loaded</span>
+<span class="c-y">[5] conversation history</span>          <span class="c-m">← grows forward only (append-only)</span>
+<span class="c-r">[6] user message</span>                  <span class="c-m">← dynamic, always at the end</span>
+<span class="c-r">[7] timestamps / session IDs</span>      <span class="c-m">← inside user message only, never above</span></div>
+
+</div>
+
+<!-- ── IMPACT TABLE ── -->
+<div id="impact" class="panel">
+
+  <div class="section-title">Every action and its cache impact</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:30%">Action</th>
+        <th style="width:40%">Cache impact</th>
+        <th style="width:30%">Fix</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Edit message N in thread</td>
+        <td>Invalidates all tokens from N to end. Full recompute of tail.</td>
+        <td>Append correction as new message at bottom</td>
+      </tr>
+      <tr>
+        <td>Switch threads for related task</td>
+        <td>100% miss. Separate threads share zero cache state.</td>
+        <td>Stay in one thread per task until done</td>
+      </tr>
+      <tr>
+        <td>Switch models mid-conversation</td>
+        <td>100% miss. Different architecture = different cache entirely.</td>
+        <td>Start a fresh thread if you need a different model</td>
+      </tr>
+      <tr>
+        <td>Inject timestamp into system prompt</td>
+        <td>Every request is a miss. Token 1 changes = everything recomputes.</td>
+        <td>Move dynamic values to the user message (end)</td>
+      </tr>
+      <tr>
+        <td>Agent deletes tool output mid-loop</td>
+        <td>Sequence gap. Everything after the deleted block recomputes.</td>
+        <td>Replace with compact summary tag, never delete</td>
+      </tr>
+      <tr>
+        <td>Edit AGENTS.md between sessions</td>
+        <td>Next session re-ingests entire prefix from edit point forward.</td>
+        <td>Batch edits. Treat it like a schema, not a scratchpad.</td>
+      </tr>
+      <tr>
+        <td>Load skills in different order</td>
+        <td>Different token positions = no prefix match. Miss every session.</td>
+        <td>Fix the load order. Most stable skill first, always.</td>
+      </tr>
+      <tr>
+        <td>Re-attach same file mid-thread</td>
+        <td>File reprocessed at new position. Old cached version stale.</td>
+        <td>Attach all files at thread start. Don't re-attach.</td>
+      </tr>
+      <tr>
+        <td>Reopen old thread after days</td>
+        <td>Cache evicted from server. Full re-ingestion on first message.</td>
+        <td>Keep sessions short. Summarise before closing.</td>
+      </tr>
+      <tr>
+        <td>Serialise JSON keys inconsistently</td>
+        <td>Same data, different token sequence = no prefix match.</td>
+        <td>Sort all serialised data deterministically before sending</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<script>
+  function show(id, el) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    el.classList.add('active');
+  }
+</script>
+</body>
+</html>
